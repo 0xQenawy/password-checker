@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Generate strong, memorable passwords and passphrases. Mix your own words with random ones for easy-to-remember security.">
+  <meta name="keywords" content="password generator, passphrase generator, memorable password, secure password">
+  <title>Password & Passphrase Generator - SecurePass Tools</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
+
+  <nav>
+    <div class="logo">🛡️ SecurePass Tools</div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="checker.html">Password Checker</a>
+      <a href="generator.html" class="active">Password Generator</a>
+    </div>
+  </nav>
+
+  <div class="card" role="main">
+    <h1>Password & Passphrase Generator</h1>
+    <p class="lead">Generate strong passwords that are actually memorable! Choose between random passwords or easy-to-remember passphrases.</p>
+
+    <!-- Generator Type Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="passphrase">🧠 Easy to Remember</button>
+      <button class="tab-btn" data-tab="random">🎲 Random Password</button>
+    </div>
+
+    <!-- Output Area -->
+    <div class="generator-output">
+      <input id="generatedPassword" type="text" readonly value="Click 'Generate' to create" />
+      <button class="btn secondary" id="copyBtn">📋 Copy</button>
+    </div>
+
+    <!-- Passphrase Options -->
+    <div id="passphraseOptions" class="generator-options">
+      <h3>Passphrase Style</h3>
+      
+      <div class="style-selector">
+        <label class="radio-card">
+          <input type="radio" name="passphraseStyle" value="custom" checked />
+          <div class="radio-content">
+            <strong>🎯 Mix Your Word</strong>
+            <p>Your word mixed with random words</p>
+          </div>
+        </label>
+        
+        <label class="radio-card">
+          <input type="radio" name="passphraseStyle" value="random" />
+          <div class="radio-content">
+            <strong>🎲 Random Words</strong>
+            <p>4-6 completely random words</p>
+          </div>
+        </label>
+        
+        <label class="radio-card">
+          <input type="radio" name="passphraseStyle" value="story" />
+          <div class="radio-content">
+            <strong>📖 Story Style</strong>
+            <p>A memorable mini-story</p>
+          </div>
+        </label>
+      </div>
+
+      <div id="customWordSection" class="custom-word-section">
+        <label for="customWord">Your Word (optional - e.g., your pet's name, hobby):</label>
+        <input type="text" id="customWord" placeholder="e.g., Coffee, Gaming, Luna" maxlength="15" />
+        <small>We'll mix it with random words to make it unpredictable</small>
+      </div>
+
+      <div class="option">
+        <label for="wordCount">Number of Words: <span id="wordCountValue">4</span></label>
+        <input type="range" id="wordCount" min="3" max="7" value="4" />
+      </div>
+
+      <div class="option">
+        <label>
+          <input type="checkbox" id="capitalizeWords" checked />
+          Capitalize Each Word (Better Security)
+        </label>
+      </div>
+
+      <div class="option">
+        <label>
+          <input type="checkbox" id="addNumbers" checked />
+          Add Numbers Between Words
+        </label>
+      </div>
+
+      <div class="option">
+        <label>
+          <input type="checkbox" id="addSymbols" checked />
+          Add Symbols (!, @, #, -)
+        </label>
+      </div>
+    </div>
+
+    <!-- Random Password Options -->
+    <div id="randomOptions" class="generator-options" style="display:none;">
+      <h3>Random Password Settings</h3>
+      
+      <div class="option">
+        <label for="randomLength">Password Length: <span id="randomLengthValue">16</span></label>
+        <input type="range" id="randomLength" min="8" max="32" value="16" />
+      </div>
+
+      <div class="option">
+        <label>
+          <input type="checkbox" id="randomUppercase" checked />
+          Include Uppercase Letters (A-Z)
+        </label>
+      </div>
+
+      <div class="option">
+        <label>
+          <input type="checkbox" id="randomLowercase" checked />
+          Include Lowercase Letters (a-z)
+        </label>
+      </div>
+
+      <div class="option">
+        <label>
+          <input type="checkbox" id="randomNumbers" checked />
+          Include Numbers (0-9)
+        </label>
+      </div>
+
+      <div class="option">
+        <label>
+          <input type="checkbox" id="randomSymbols" checked />
+          Include Symbols (!@#$%^&*)
+        </label>
+      </div>
+
+      <div class="option">
+        <label>
+          <input type="checkbox" id="excludeSimilar" />
+          Exclude Similar Characters (i, l, 1, L, o, 0, O)
+        </label>
+      </div>
+    </div>
+
+    <button class="btn primary large" id="generateBtn">✨ Generate Now</button>
+
+    <div class="note info">
+      <strong>🔒 Privacy:</strong> All passwords are generated locally in your browser using cryptographic randomness. Nothing is sent to any server.
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <p>Made with ❤️ by <a href="https://linkedin.com/in/abdel-rhman-gamal" target="_blank">Abdelrahman AlQenawy</a></p>
+      <p>Cybersecurity Enthusiast | Penetration Tester</p>
+      <div class="footer-links">
+        <a href="https://github.com/0xQenawy/password-checker" target="_blank">⭐ Star on GitHub</a>
+        <a href="https://linkedin.com/in/abdel-rhman-gamal" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="generator.js"></script>
+</body>
+</html>

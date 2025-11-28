@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Password Strength Checker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
+
+  <nav>
+    <div class="logo">My Tools</div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="checker.html" class="active">Password Checker</a>
+      <a href="generator.html">Password Generator</a>
+    </div>
+  </nav>
+
+  <div class="card" role="main">
+    <h1>Password Strength Checker (Smart Edition)</h1>
+    <p class="lead">Advanced password analysis with Arabic names detection and enhanced security checks. All analysis happens on your device only.</p>
+
+    <label for="pw">Enter Password</label>
+    <input id="pw" type="password" placeholder="Try: Abdelrahman vs Tr!9$mK@pL2v" autocomplete="off" />
+
+    <div class="bar" aria-hidden="true"><i id="barFill"></i></div>
+
+    <div class="meta" id="summary">Waiting for input...</div>
+
+    <div class="adv" id="details" style="display:none;">
+      <div><strong>Entropy (bits):</strong> <span id="entropy">-</span></div>
+      <div><strong>Estimated Crack Time:</strong> <span id="cracktime">-</span></div>
+      <div><strong>Character Analysis:</strong> <span id="charAnalysis">-</span></div>
+      <div><strong>Security Issues:</strong> <span id="issues">-</span></div>
+      <div><strong>Recommendations:</strong> <span id="feedback">-</span></div>
+    </div>
+
+    <div class="note">
+      <strong>Privacy:</strong> All checks run locally in your browser. No data is sent to any server.
+    </div>
+
+    <button class="btn secondary" id="toggleReveal">Show/Hide Password</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+  <script src="checker.js"></script>
+</body>
+</html>
