@@ -148,6 +148,9 @@ function advancedPasswordAnalysis(password) {
     if (!hasSymbol) recommendations.push('Add symbols (!@#$%^&*)');
   } else if (diversityCount === 4) {
     baseScore = Math.min(4, baseScore + 1); // Bonus for all types
+    if (password.length >= 8 && password.length < 12) {
+        baseScore += 1;
+    }
   }
   
   // Repeated characters (aaa, 111)
